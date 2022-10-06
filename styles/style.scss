@@ -1,0 +1,167 @@
+/* 
+フォント
+Google Fonts の「Crimson Text」を使用します。`
+
+コンテンツ幅
+メインビジュアルとヘッダーメニューは90vw、コンテンツ部分は1000pxで設定します。メインビジュアルの高さは可変です。
+
+グローバルナビゲーション
+ConceptとWorkをクリックすると各コンテンツにジャンプするようページ内リンクを設定します。
+Contactをクリックするとメーラーが起動して、件名に「お問い合わせ」と設定されている状態にします。
+
+Concept、Work
+画面幅を縮めた際に、画像とテキストエリアは縮小させます。
+
+フッター
+ロゴとコピーライトを横並びの両端で揃えます。
+
+レスポンシブ
+ブレークポイントは767pxです。
+スマホ時は、Concept、Workの画像とテキストを縦に並べます。Workは画像、テキストの順で並ぶようにCSSで設定します。 */
+
+@charset "UTF-8";
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: 'Crimson Text', serif, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 90vw;
+  margin: 2rem auto 0;
+
+  & .mainvisual {
+    margin-bottom: 2rem;
+  }
+
+  & .header-nav {
+    display: flex;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    & img {
+      width: 110px;
+      line-height: 1px;
+      margin-right: 2em;
+    }
+
+    & ul {
+      padding: 0;
+      display: flex;
+      align-items: center;
+
+      & li {
+        margin-right: 2rem;
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about {
+  margin-bottom: 2rem;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    & img {
+      width: 50%;
+      padding-right: 2rem;
+    }
+  }
+  &__text {
+    width: 50%;
+
+    & h1 {
+      margin-bottom: 1rem;
+    }
+
+    & h3 {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.work {
+  flex-direction: row-reverse;
+
+  & img {
+    padding-right: 0;
+  }
+
+  & .about__text {
+    padding-right: 2rem;
+  }
+}
+
+footer {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+  & img {
+    width: 110px
+  }
+}
+
+@media screen and (max-width:767px) {
+  .mainvisual {
+    width: 100%;
+    margin: 0;
+    & img {
+      width: 100%;
+      height: 50vh;
+      object-fit: cover;
+    }
+  }
+  header {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  main, footer {
+    width: 90vw;
+    margin-bottom: 2rem;
+  }
+  
+  .about__item {
+    flex-direction: column;
+
+    & img {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0;
+    }
+
+    & .about__text {
+      width: 100%;
+      padding: 0;
+    }
+  }  
+}
